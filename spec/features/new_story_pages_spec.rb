@@ -10,4 +10,10 @@ describe 'the new story process' do
     click_on 'Create Story'
     expect(page).to have_content('Story successfully created.')
   end
+
+  it 'gives an error when no information is entered' do
+    visit new_story_path
+    click_on 'Create Story'
+    expect(page).to have_content 'errors'
+  end
 end
