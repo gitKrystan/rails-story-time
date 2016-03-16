@@ -53,8 +53,4 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, sentences_attributes: [:id, :content, :author])
   end
-
-  # def sentence_params
-  #   params.require(:sentence).permit(:content, :author)
-  # end
 end
