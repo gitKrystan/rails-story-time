@@ -31,6 +31,15 @@ class SentencesController < ApplicationController
     end
   end
 
+  def destroy
+    story = get_story
+    @sentence = get_sentence
+    if !@sentence.destroy
+      flash[:alert] = 'Cannot delete sentence that is not last.'
+    end
+    redirect_to story
+  end
+
   private
 
   def get_sentence

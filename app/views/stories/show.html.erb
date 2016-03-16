@@ -7,7 +7,7 @@
     <p>
       -- <%= sentence.author %>
     </p>
-    <% if sentence == @sentences.last %>
+    <% if sentence.is_the_last_sentence? %>
       <p>
         <%= link_to 'Edit', edit_story_sentence_path(@story, sentence),
                     id: "edit-sentence-#{sentence.id}" %>

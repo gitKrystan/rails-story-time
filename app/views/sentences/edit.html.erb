@@ -1,1 +1,4 @@
 <%= render 'form' %>
+<%= link_to 'Delete Sentence', story_sentence_path(@story, @sentence),
+                            data: { confirm: 'You sure?',
+                                    method: 'delete'}%>
