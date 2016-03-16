@@ -1,5 +1,4 @@
 class SentencesController < ApplicationController
-
   def new
     @story = get_story
     @sentence = @story.sentences.new
@@ -16,7 +15,27 @@ class SentencesController < ApplicationController
     end
   end
 
+  def edit
+    @story = get_story
+    @sentence = get_sentence
+  end
+
+  def update
+    @story = get_story
+    @sentence = get_sentence
+    if @sentence.update(sentence_params)
+      flash[:notice] = 'Sentence successfully updated.'
+      redirect_to @story
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def get_sentence
+    Sentence.find(params[:id])
+  end
 
   def get_story
     Story.find(params[:story_id])

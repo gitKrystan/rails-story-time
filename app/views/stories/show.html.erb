@@ -7,6 +7,9 @@
     <p>
       -- <%= sentence.author %>
     </p>
+    <p>
+      <%= link_to 'Edit', edit_story_sentence_path(@story, sentence) %>
+    </p>
   <% end %>
 <% else %>
   <p>
