@@ -7,9 +7,12 @@
     <p>
       -- <%= sentence.author %>
     </p>
-    <p>
-      <%= link_to 'Edit', edit_story_sentence_path(@story, sentence) %>
-    </p>
+    <% if sentence == @story.sentences.last %>
+      <p>
+        <%= link_to 'Edit', edit_story_sentence_path(@story, sentence),
+                    id: "edit-sentence-#{sentence.id}" %>
+      </p>
+    <% end %>
   <% end %>
 <% else %>
   <p>
