@@ -1,0 +1,15 @@
+<h1><%= @story.title %></h1>
+<% if @story.sentences.any? %>
+  <% @story.sentences.each do |sentence| %>
+    <p>
+      <%= sentence.content %>
+    </p>
+    <p>
+      -- <%= sentence.author %>
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    Something was wrong with your sentence and it didn't save! :-(
+  </p>
+<% end %>
