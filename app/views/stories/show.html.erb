@@ -21,4 +21,7 @@
 <% end %>
 
 <%= link_to 'Edit Story Title', edit_story_path(@story) %>
+<%= link_to 'Delete Story', story_path(@story),
+                            data: { confirm: 'You sure?',
+                                    method: 'delete'}%>
 <%= link_to 'Add a Sentence', new_story_sentence_path(@story) %>
