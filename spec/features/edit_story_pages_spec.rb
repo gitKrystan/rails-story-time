@@ -6,7 +6,7 @@ describe 'the edit a story path' do
     create_test_story
     visit stories_path
     click_on 'Test Story'
-    click_on 'Edit Story Prompt'
+    click_on 'Edit Story Title'
     fill_in 'Title', with: 'Updated Title'
     click_on 'Update Story'
     expect(page).to have_content 'Updated Title'
