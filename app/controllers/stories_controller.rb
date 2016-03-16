@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = get_story
+    @sentences = @story.sentences.order(:created_at)
   end
 
   def new
