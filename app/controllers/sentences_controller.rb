@@ -2,6 +2,7 @@ class SentencesController < ApplicationController
   def new
     @story = get_story
     @sentence = @story.sentences.new
+    @sentence_image = Image.random
   end
 
   def create
@@ -11,6 +12,7 @@ class SentencesController < ApplicationController
       flash[:notice] = "Sentence successfully saved."
       redirect_to @story
     else
+      @sentence_image = Image.find(sentence_params['image_id'].to_i)
       render :new
     end
   end
@@ -18,6 +20,7 @@ class SentencesController < ApplicationController
   def edit
     @story = get_story
     @sentence = get_sentence
+    @sentence_image = get_image
   end
 
   def update
@@ -27,6 +30,7 @@ class SentencesController < ApplicationController
       flash[:notice] = 'Sentence successfully updated.'
       redirect_to @story
     else
+      @sentence_image = get_image
       render :edit
     end
   end
@@ -50,7 +54,11 @@ class SentencesController < ApplicationController
     Story.find(params[:story_id])
   end
 
+  def get_image
+    @sentence.image
+  end
+
   def sentence_params
-    params.require(:sentence).permit(:content, :author)
+    params.require(:sentence).permit(:content, :author, :image_id)
   end
 end

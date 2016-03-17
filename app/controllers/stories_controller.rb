@@ -5,12 +5,14 @@ class StoriesController < ApplicationController
 
   def show
     @story = get_story
+    @story_image = get_story_image
     @sentences = @story.sentences.order(:created_at)
   end
 
   def new
     @story = Story.new
     @story.sentences.build
+    @story_image = Image.random
     @creating_new_story = true
   end
 
@@ -20,12 +22,15 @@ class StoriesController < ApplicationController
       flash[:notice] = "Story successfully created."
       redirect_to @story
     else
+      @creating_new_story = true
+      @story_image = Image.find(story_params['sentences_attributes']['0']['image_id'].to_i)
       render :new
     end
   end
 
   def edit
     @story = get_story
+    @story_image = get_story_image
   end
 
   def update
@@ -34,6 +39,7 @@ class StoriesController < ApplicationController
       flash[:notice] = "Story successfully updated."
       redirect_to @story
     else
+      @story_image = get_story_image
       render :edit
     end
   end
@@ -50,7 +56,11 @@ class StoriesController < ApplicationController
     Story.find(params[:id])
   end
 
+  def get_story_image
+    @story.sentences.order(:created_at).first.image
+  end
+
   def story_params
-    params.require(:story).permit(:title, sentences_attributes: [:id, :content, :author])
+    params.require(:story).permit(:title, sentences_attributes: [:id, :content, :author, :image_id])
   end
 end

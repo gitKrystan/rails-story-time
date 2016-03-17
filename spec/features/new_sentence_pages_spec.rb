@@ -13,6 +13,7 @@ describe 'the add a new sentence path' do
     fill_in 'Author', with: 'New Test Author'
     click_on 'Create Sentence'
     expect(page).to have_content('I am a new test sentence.')
+    expect(page).to have_css('.sentence-image')
   end
 
   it 'gives an error if the sentence is blank' do

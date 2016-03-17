@@ -1,6 +1,11 @@
 <h1><%= @story.title %></h1>
 <% if @sentences.any? %>
   <% @sentences.each do |sentence| %>
+    <% if sentence.image %>
+      <div class="sentence-image">
+        <%= image_tag sentence.image.filename %>
+      </div>
+    <% end %>
     <p>
       <%= sentence.content %>
     </p>

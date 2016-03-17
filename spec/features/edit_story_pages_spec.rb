@@ -11,4 +11,13 @@ describe 'the edit a story path' do
     click_on 'Update Story'
     expect(page).to have_content 'Updated Title'
   end
+
+  it 'gives an error when no information is entered' do
+    story = create_test_story
+    visit story_path(story)
+    click_on 'Edit Story Title'
+    fill_in 'Title', with: ''
+    click_on 'Update Story'
+    expect(page).to have_content 'errors'
+  end
 end

@@ -15,4 +15,28 @@ describe Story do
       expect(story.destroy).to be_truthy
     end
   end
+
+  context '.first_sentence' do
+    it 'will return the first sentence of the story' do
+      story = create_test_story
+      first_sentence = story.sentences.first
+      expect(story.first_sentence).to eq(first_sentence)
+    end
+  end
+
+  context '.author' do
+    it 'will return the author of the first sentence of the story' do
+      story = create_test_story
+      first_sentence = story.sentences.first
+      expect(story.author).to eq(first_sentence.author)
+    end
+  end
+
+  context '.image' do
+    it 'will return the image of the first sentence of the story' do
+      story = create_test_story
+      first_sentence = story.sentences.first
+      expect(story.image).to eq(first_sentence.image)
+    end
+  end
 end

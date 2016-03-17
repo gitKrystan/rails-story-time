@@ -4,7 +4,14 @@
 <% if @stories.any? %>
   <ul class="nav nav-pills nav-stacked">
     <% @stories.each do |story| %>
-      <li><%= link_to story.title, story %></li>
+      <li>
+        <%= link_to story do %>
+          <div class="sentence-image">
+            <%= image_tag story.image.filename %>
+          </div>
+          <%= story.title %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% end %>
