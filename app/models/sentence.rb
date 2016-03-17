@@ -19,7 +19,7 @@ class Sentence < ActiveRecord::Base
   end
 
   def check_if_is_last_sentence_before_destroy
-    return true if is_the_last_sentence?
+    return true if is_the_last_sentence? || destroyed_by_association
     errors.add :base, 'Cannot delete a sentence that is not the last sentence.'
     false
   end
