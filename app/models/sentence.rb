@@ -1,5 +1,6 @@
 class Sentence < ActiveRecord::Base
   belongs_to :story
+  belongs_to :image
   validates :author, presence: true
   validates_length_of :content, :maximum => 300, :allow_blank => false
   validate :sentence_must_be_the_last_sentence, on: :update

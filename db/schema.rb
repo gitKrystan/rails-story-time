@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316161245) do
+ActiveRecord::Schema.define(version: 20160317152144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "filename"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "sentences", force: :cascade do |t|
     t.string   "content"
@@ -22,8 +29,10 @@ ActiveRecord::Schema.define(version: 20160316161245) do
     t.integer  "story_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "image_id"
   end
 
+  add_index "sentences", ["image_id"], name: "index_sentences_on_image_id", using: :btree
   add_index "sentences", ["story_id"], name: "index_sentences_on_story_id", using: :btree
 
   create_table "stories", force: :cascade do |t|
@@ -32,5 +41,6 @@ ActiveRecord::Schema.define(version: 20160316161245) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "sentences", "images"
   add_foreign_key "sentences", "stories"
 end

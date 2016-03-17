@@ -1,7 +1,64 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+image_list = [
+  [ "Alien-100.png", "Alien" ],
+  [ "Alligator-100.png", "Alligator" ],
+  [ "Astronaut-100.png", "Astronaut" ],
+  [ "Baby-100.png", "Baby" ],
+  [ "Bat-100.png", "Bat" ],
+  [ "Beaver-100.png", "Beaver" ],
+  [ "Beer-100.png", "Beer" ],
+  [ "Brutus-100.png", "Brutus" ],
+  [ "Camping Tent-100.png", "Camping Tent" ],
+  [ "Carrot-100.png", "Carrot" ],
+  [ "Cat-100.png", "Cat" ],
+  [ "Christmas Penguin-100.png", "Christmas Penguin" ],
+  [ "Corgi-100.png", "Corgi" ],
+  [ "Dinosaur-100.png", "Dinosaur" ],
+  [ "Dizzy Person-100.png", "Dizzy Person" ],
+  [ "Dolphin-100.png", "Dolphin" ],
+  [ "Doughnut-100.png", "Doughnut" ],
+  [ "Duck-100.png", "Duck" ],
+  [ "Edvard Munch-100.png", "Edvard Munch" ],
+  [ "Frida Kahlo-100.png", "Frida Kahlo" ],
+  [ "Full of Shit-100.png", "Full of Shit" ],
+  [ "Ghost-100.png", "Ghost" ],
+  [ "Grasshopper-100.png", "Grasshopper" ],
+  [ "Guitar-100.png", "Guitar" ],
+  [ "Helicopter-100.png", "Helicopter" ],
+  [ "Hot Dog-100.png", "Hot Dog" ],
+  [ "Login As User-100.png", "Login As User" ],
+  [ "Magritte-100.png", "Magritte" ],
+  [ "Man Wants To Pee-100.png", "Man Wants To Pee" ],
+  [ "Mountain Biking-100.png", "Mountain Biking" ],
+  [ "Move Shit Around-100.png", "Move Shit Around" ],
+  [ "Mustache-100.png", "Mustache" ],
+  [ "Octopus-100.png", "Octopus" ],
+  [ "Old Man-100.png", "Old Man" ],
+  [ "Old Woman-100.png", "Old Woman" ],
+  [ "Palace-100.png", "Palace" ],
+  [ "Panda-100.png", "Panda" ],
+  [ "Park Bench-100.png", "Park Bench" ],
+  [ "Parkour-100.png", "Parkour" ],
+  [ "Pig-100.png", "Pig" ],
+  [ "Pizza-100.png", "Pizza" ],
+  [ "Plush-100.png", "Plush" ],
+  [ "Santa-100.png", "Santa" ],
+  [ "Sci-Fi-100.png", "Sci-Fi" ],
+  [ "Sideburns-100.png", "Sideburns" ],
+  [ "Skateboard-100.png", "Skateboard" ],
+  [ "Skiing-100.png", "Skiing" ],
+  [ "Skull-100.png", "Skull" ],
+  [ "Spy-100.png", "Spy" ],
+  [ "Statue of Liberty-100.png", "Statue of Liberty" ],
+  [ "Steve Jobs-100.png", "Steve Jobs" ],
+  [ "Strike-100.png", "Strike" ],
+  [ "Taco-100.png", "Taco" ],
+  [ "Telescope-100.png", "Telescope" ],
+  [ "Tuba-100.png", "Tuba" ],
+  [ "Unicorn-100.png", "Unicorn" ],
+  [ "Watch Your Step-100.png", "Watch Your Step" ],
+  [ "Whale-100.png", "Whale" ]
+]
+
+image_list.each do |filename, description|
+  Image.create( filename: filename, description: description )
+end
