@@ -5,7 +5,8 @@ class StoriesController < ApplicationController
 
   def search
     @query = params[:q]
-    sentence_search_stories = Sentence.basic_search(@query).map { |sentence| sentence.story }
+    sentence_search_stories = Sentence.basic_search(@query)
+                                      .map { |sentence| sentence.story }
     story_search_stories = Story.basic_search(@query)
     @stories = (sentence_search_stories + story_search_stories).uniq
     render :index
@@ -27,7 +28,7 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     if @story.save
-      flash[:notice] = "Story successfully created."
+      flash[:notice] = 'Story successfully created.'
       redirect_to @story
     else
       @creating_new_story = true
@@ -44,7 +45,7 @@ class StoriesController < ApplicationController
   def update
     @story = get_story
     if @story.update(story_params)
-      flash[:notice] = "Story successfully updated."
+      flash[:notice] = 'Story successfully updated.'
       redirect_to @story
     else
       @story_image = get_story_image

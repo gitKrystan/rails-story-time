@@ -10,7 +10,7 @@ class SentencesController < ApplicationController
     @story = get_story
     @sentence = @story.sentences.new(sentence_params)
     if @sentence.save
-      flash[:notice] = "Sentence successfully saved."
+      flash[:notice] = 'Sentence successfully saved.'
       redirect_to @story
     else
       @story_sentences = get_story_sentences
@@ -42,7 +42,7 @@ class SentencesController < ApplicationController
   def destroy
     story = get_story
     @sentence = get_sentence
-    if !@sentence.destroy
+    unless @sentence.destroy
       flash[:alert] = 'Cannot delete sentence that is not last.'
     end
     redirect_to story
