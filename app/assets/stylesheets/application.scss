@@ -89,3 +89,34 @@ body {
     content: close-quote;
   }
 }
+
+.carousel-control {
+  opacity: 1;
+  width: 2%;
+}
+
+.carousel-control.right,
+.carousel-control.left, {
+  background-color: white;
+  background-image: none;
+  color: $text-color;
+}
+
+.carousel-inner {
+  width: 80%;
+  margin: auto;
+  padding: 5px;
+}
+
+.carousel-sentence {
+  font-style: italic;
+  font-size: 1.5em;
+  display: inline;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.carousel-image {
+  display: inline;
+  margin-left: 5%;
+}

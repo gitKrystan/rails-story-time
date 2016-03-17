@@ -1,5 +1,8 @@
-<%= render 'layouts/story_show', story: @story, sentences: @sentences, small: false %>
-<br>
-<%= link_to new_story_sentence_path(@story), id: "add-sentence" do %>
+<div class="story-show">
+  <%= render 'layouts/story_show', story: @story, sentences: @sentences, small: false %>
+  <br>
+  <%= link_to new_story_sentence_path(@story), id: "add-sentence" do %>
   <button class="btn btn-success btn-block">Add a Sentence</button>
-<% end %>
+  <% end %>
+  <hr>
+</div>
