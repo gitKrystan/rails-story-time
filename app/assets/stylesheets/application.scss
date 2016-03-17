@@ -8,10 +8,20 @@ body {
   padding-bottom: 70px;
 }
 
+.navbar {
+  .navbar-brand {
+    font-family: $font-family-sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    // font-size: 30px;
+  }
+}
+
 .jumbotron {
   h2 {
     margin: 0;
-    font-weight: 900;
+    font-weight: 400;
+    font-style: italic;
     font-size: 3em;
   }
 }
@@ -20,13 +30,31 @@ body {
   border-bottom: 1px solid $gray-lighter;
 }
 
-.media {
-  margin-bottom: $grid-gutter-width/2;
-  padding-bottom: $grid-gutter-width/2;
-  border-bottom: 1px solid $gray-lighter;
+.story-list-item {
+  .media {
+    margin-bottom: $grid-gutter-width/2;
+    padding-bottom: $grid-gutter-width/2;
+    border-bottom: 1px solid $gray-lighter;
+    color: $gray-base;
+  }
+
+  .media-heading {
+    padding-bottom: 8px;
+  }
+
+  blockquote {
+    p {
+      font-style: italic;
+    }
+  }
+}
+
+.story-list-item:hover {
+  text-decoration: none;
 }
 
 .story-image {
   height: 100px;
   width: 100px;
+  margin-right: $grid-gutter-width/2;
 }
