@@ -4,8 +4,8 @@
 @import "bootstrap";
 
 body {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .navbar {
@@ -13,16 +13,19 @@ body {
     font-family: $font-family-sans-serif;
     font-weight: 100;
     font-style: italic;
-    // font-size: 30px;
   }
 }
 
-.jumbotron {
-  h2 {
-    margin: 0;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 3em;
+.container {
+  .jumbotron {
+    padding: $grid-gutter-width;
+
+    h2 {
+      margin: 0;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 3em;
+    }
   }
 }
 
@@ -30,11 +33,11 @@ body {
   border-bottom: 1px solid $gray-lighter;
 }
 
-.story-list-item {
+.story-list-item,
+.sentence-list-item {
   .media {
     margin-bottom: $grid-gutter-width/2;
     padding-bottom: $grid-gutter-width/2;
-    border-bottom: 1px solid $gray-lighter;
     color: $gray-base;
   }
 
@@ -43,10 +46,20 @@ body {
   }
 
   blockquote {
+
     p {
       font-style: italic;
     }
+
+    label {
+      padding-bottom: 5px;
+      font-size: .8em;
+    }
   }
+}
+
+.story-list-item {
+  border-bottom: 1px solid $gray-lighter;
 }
 
 .story-list-item:hover {
@@ -57,4 +70,22 @@ body {
   height: 100px;
   width: 100px;
   margin-right: $grid-gutter-width/2;
+}
+
+.image-small {
+  height: 50px;
+  width: 50px;
+  opacity: 0.5;
+}
+
+.title {
+  quotes: "“" "”";
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
 }

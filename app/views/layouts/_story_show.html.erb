@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1><span class="title"><%= story.title %></span> <small>a story by <%= story.author %> and friends</small></h1>
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Edit Story Title', edit_story_path(story) %></li>
+    <li><%= link_to 'Delete Story', story_path(story),
+    data: { confirm: 'You sure?',
+      method: 'delete'}%></li>
+    </ul>
+</div>
+
+<% sentences.each do |sentence| %>
+  <%= render 'layouts/sentence_list_item', sentence: sentence, small: small %>
+<% end %>

@@ -1,0 +1,21 @@
+<div class="sentence-list-item">
+  <div class="media">
+    <div class="media-left">
+      <%= image_tag sentence.image.filename, class: "media-object sentence-image #{'image-small' if small}" %>
+    </div>
+    <div class="media-body">
+      <blockquote>
+        <p >
+          <%= sentence.content %> ...
+        </p>
+        <footer>
+          <%= sentence.author %>
+          <% if sentence.is_the_last_sentence? %>
+          <%= link_to '(Edit)', edit_story_sentence_path(@story, sentence),
+          id: "edit-sentence-#{sentence.id}" %>
+          <% end %>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</div>

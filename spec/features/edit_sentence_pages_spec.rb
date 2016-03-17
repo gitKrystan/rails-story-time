@@ -7,7 +7,7 @@ describe 'the edit a sentence path' do
     sentence = story.first_sentence
     visit story_path(story)
     click_on "edit-sentence-#{sentence.id}"
-    fill_in 'Sentence', with: 'I am an updated test sentence.'
+    fill_in 'sentence_content', with: 'I am an updated test sentence.'
     click_on 'Update Sentence'
     expect(page).not_to have_content('Test content.')
     expect(page).to have_content('I am an updated test sentence.')
@@ -22,7 +22,7 @@ describe 'the edit a sentence path' do
     visit story_path(story)
     expect(page).not_to have_selector "#edit-sentence-#{first_sentence.id}"
     visit edit_story_sentence_path(story, first_sentence)
-    fill_in 'Sentence', with: 'I am an updated test sentence.'
+    fill_in 'sentence_content', with: 'I am an updated test sentence.'
     click_on 'Update Sentence'
     expect(page).to have_content('errors')
   end

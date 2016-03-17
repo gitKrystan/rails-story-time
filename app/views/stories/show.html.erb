@@ -1,32 +1,5 @@
-<h1><%= @story.title %></h1>
-<% if @sentences.any? %>
-  <% @sentences.each do |sentence| %>
-    <% if sentence.image %>
-      <div class="sentence-image">
-        <%= image_tag sentence.image.filename %>
-      </div>
-    <% end %>
-    <p>
-      <%= sentence.content %>
-    </p>
-    <p>
-      -- <%= sentence.author %>
-    </p>
-    <% if sentence.is_the_last_sentence? %>
-      <p>
-        <%= link_to 'Edit', edit_story_sentence_path(@story, sentence),
-                    id: "edit-sentence-#{sentence.id}" %>
-      </p>
-    <% end %>
-  <% end %>
-<% else %>
-  <p>
-    Something was wrong with your sentence and it didn't save! :-(
-  </p>
+<%= render 'layouts/story_show', story: @story, sentences: @sentences, small: false %>
+<br>
+<%= link_to new_story_sentence_path(@story), id: "add-sentence" do %>
+  <button class="btn btn-success btn-block">Add a Sentence</button>
 <% end %>
-
-<%= link_to 'Edit Story Title', edit_story_path(@story) %>
-<%= link_to 'Delete Story', story_path(@story),
-                            data: { confirm: 'You sure?',
-                                    method: 'delete'}%>
-<%= link_to 'Add a Sentence', new_story_sentence_path(@story) %>

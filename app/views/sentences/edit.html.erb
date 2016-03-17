@@ -1,4 +1,9 @@
+<%= render 'layouts/story_show', story: @story, sentences: @story_sentences, small: true %>
+
 <%= render 'form' %>
+
 <%= link_to 'Delete Sentence', story_sentence_path(@story, @sentence),
-                            data: { confirm: 'You sure?',
-                                    method: 'delete'}%>
+                               data: { confirm: 'You sure?',
+                                       method: 'delete'},
+                               class: 'btn btn-small btn-danger pull-right'
+                                    %>

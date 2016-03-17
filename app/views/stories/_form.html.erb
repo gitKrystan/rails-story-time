@@ -1,9 +1,15 @@
 <%= render 'layouts/errors', object: @story %>
 
-<div class="story-image">
-  <%= image_tag @story_image.filename %>
+<div class="row">
+  <div class="story-image col-sm-offset-2 col-sm-2">
+    <%= image_tag @story_image.filename %>
+  </div>
+  <div class="col-sm-8">
+    <h3>Base your story on this image.</h3>
+  </div>
 </div>
 
+<hr>
 <%= form_for @story, html: {class: 'form-horizontal'} do |f| %>
 <div class="form-group">
   <%= f.label :title, class: 'col-sm-2 control-label' %>

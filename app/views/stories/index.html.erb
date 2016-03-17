@@ -15,26 +15,11 @@
 
   <% @stories.each do |story| %>
     <%= link_to story, class: 'story-list-item' do %>
-
-      <div class="media">
-        <div class="media-left">
-          <%= image_tag story.image.filename, class: 'media-object story-image' %>
-        </div>
-        <div class="media-body">
-          <h3 class="media-heading">"<%= story.title %>"</h3>
-          <blockquote>
-            <p >
-              <%= story.first_sentence.content %> ...
-            </p>
-            <footer>
-              <%= story.author %>
-            </footer>
-          </blockquote>
-
-
-        </div>
-      </div>
-
+      <%= render 'layouts/story_list_item', story: story %>
     <% end %>
+  <% end %>
+
+  <%= link_to new_story_path, id: 'new-story' do %>
+    <button class="btn btn-success btn-block">Start a New Adventure</button>
   <% end %>
 <% end %>
