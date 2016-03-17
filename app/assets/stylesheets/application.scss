@@ -1,2 +1,7 @@
+@import 'bootswatch_variables';
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  padding-top: 70px;
+}

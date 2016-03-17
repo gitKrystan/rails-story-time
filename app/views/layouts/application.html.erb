@@ -8,10 +8,24 @@
 </head>
 <body>
 
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <%= link_to 'The Adventurator', '/', class: 'navbar-brand' %>
+  </div>
+</div>
+
 <%= flash[:alert] %>
 <%= flash[:notice] %>
 
 <%= yield %>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p class="navbar-text">
+      Icons by <a href="https://icons8.com/" class="navbar-link">icons8</a>
+    </p>
+  </div>
+</div>
 
 </body>
 </html>
