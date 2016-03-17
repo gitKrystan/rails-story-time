@@ -1,17 +1,36 @@
-<%= link_to 'Start a New Story', new_story_path %>
-
+<div class="jumbotron">
+  <h2>One sentence at a time...</h2>
+  <p>
+    a new story is written by you and all of your friends.
+  </p>
+  <%= link_to new_story_path, id: 'new-story' do %>
+    <button class="btn btn-success btn-block">Start a New Adventure</button>
+  <% end %>
+</div>
 
 <% if @stories.any? %>
-  <ul class="nav nav-pills nav-stacked">
-    <% @stories.each do |story| %>
-      <li>
-        <%= link_to story do %>
-          <div class="sentence-image">
-            <%= image_tag story.image.filename %>
-          </div>
-          <%= story.title %>
-        <% end %>
-      </li>
+  <div class="page-header">
+    <h4>Add to an Adventure</h4>
+  </div>
+
+  <% @stories.each do |story| %>
+    <%= link_to story do %>
+
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag story.image.filename, class: 'media-object story-image' %>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading"><%= story.title %></h3>
+          <p class="first-sentence">
+            <%= story.first_sentence.content %>
+          </p>
+          <p class="author">
+            &#8212 <%= story.author %>
+          </p>
+        </div>
+      </div>
+
     <% end %>
-  </ul>
+  <% end %>
 <% end %>

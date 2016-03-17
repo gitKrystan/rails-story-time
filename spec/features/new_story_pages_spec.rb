@@ -3,7 +3,7 @@ require "rails_helper"
 describe 'the new story process' do
   it 'adds a new story and its first sentence' do
     visit stories_path
-    click_on 'New Story'
+    click_on 'new-story'
     expect(page).to have_css('.story-image')
     fill_in 'Title', with: 'Test Story'
     fill_in 'Sentence', with: 'I am a test sentence.'

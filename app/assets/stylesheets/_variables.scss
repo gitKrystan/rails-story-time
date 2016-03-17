@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway);
+
+$font-family-sans-serif:  "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       "Playfair Display", Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-base:        $font-family-sans-serif !default;
+$headings-font-family:    $font-family-serif !default;
+$headings-font-weight:    700 !default;
+
+$grid-gutter-width:         30px !default;
+$container-tablet:             (720px + $grid-gutter-width) !default;
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop:            (720px + $grid-gutter-width) !default;
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      (720px + $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop !default;
