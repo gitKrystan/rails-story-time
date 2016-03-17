@@ -10,8 +10,6 @@
   </div>
 <% end %>
 
-
-
 <% if @stories.any? %>
   <div class="page-header">
     <% if @query %>
@@ -30,4 +28,6 @@
   <%= link_to new_story_path, id: 'new-story' do %>
     <button class="btn btn-success btn-block">Start a New Adventure</button>
   <% end %>
+<% else %>
+Sorry, no stories match: <%= @query %>
 <% end %>

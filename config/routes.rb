@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: 'stories#index'
   resources :stories do
-    resources :sentences
+    resources :sentences, except: ['show', 'index']
 
     collection do
-      get :search, action: 'search_stories', as: 'search'
+      get :search, action: 'search', as: 'search'
     end
   end
 

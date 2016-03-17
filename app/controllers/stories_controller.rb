@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
     @stories = Story.order(created_at: :desc)
   end
 
-  def search_stories
+  def search
     @query = params[:q]
     sentence_search_stories = Sentence.basic_search(@query).map { |sentence| sentence.story }
     story_search_stories = Story.basic_search(@query)
