@@ -3,6 +3,14 @@ class StoriesController < ApplicationController
     @stories = Story.order(created_at: :desc)
   end
 
+  def search_stories
+    @query = params[:q]
+    sentence_search_stories = Sentence.basic_search(@query).map { |sentence| sentence.story }
+    story_search_stories = Story.basic_search(@query)
+    @stories = (sentence_search_stories + story_search_stories).uniq
+    render :index
+  end
+
   def show
     @story = get_story
     @story_image = get_story_image

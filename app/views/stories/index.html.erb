@@ -1,16 +1,24 @@
-<div class="jumbotron">
-  <h2>One sentence at a time...</h2>
-  <p>
-    a new story is written by you and all of your friends.
-  </p>
-  <%= link_to new_story_path, id: 'new-story' do %>
-    <button class="btn btn-success btn-block">Start a New Adventure</button>
-  <% end %>
-</div>
+<% unless @query %>
+  <div class="jumbotron">
+    <h2>One sentence at a time...</h2>
+    <p>
+      a new story is written by you and all of your friends.
+    </p>
+    <%= link_to new_story_path, id: 'new-story' do %>
+      <button class="btn btn-success btn-block">Start a New Adventure</button>
+    <% end %>
+  </div>
+<% end %>
+
+
 
 <% if @stories.any? %>
   <div class="page-header">
-    <h4>Add to an Adventure</h4>
+    <% if @query %>
+      <h4>Stories matching: "<%= @query %>"</h4>
+    <% else %>
+      <h4>Add to an Adventure</h4>
+    <% end %>
   </div>
 
   <% @stories.each do |story| %>

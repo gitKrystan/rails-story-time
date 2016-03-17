@@ -11,6 +11,13 @@
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <%= link_to 'THE ADVENTURATOR', '/', class: 'navbar-brand' %>
+
+    <%= form_tag(search_stories_path, method: "get", class: 'navbar-form navbar-right') do %>
+      <div class="form-group">
+        <%= text_field_tag(:q, nil, placeholder: 'Find a Story', class: 'form-control') %>
+        <%= submit_tag("Go", class: "btn btn-default") %>
+      </div>
+    <% end %>
   </div>
 </div>
 
