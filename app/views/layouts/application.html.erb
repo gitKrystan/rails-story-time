@@ -13,14 +13,26 @@
 
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <%= link_to 'THE ADVENTURATOR', '/', class: 'navbar-brand' %>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'THE ADVENTURATOR', '/', class: 'navbar-brand' %>
+    </div>
 
-    <%= form_tag(search_stories_path, method: "get", class: 'navbar-form navbar-right') do %>
-      <div class="form-group">
-        <%= text_field_tag(:q, nil, placeholder: 'Find a Story', class: 'form-control') %>
-        <%= submit_tag("Go", class: "btn btn-default") %>
-      </div>
-    <% end %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <%= form_tag(search_stories_path, method: "get", class: 'navbar-form navbar-right') do %>
+        <div class="input-group">
+          <%= text_field_tag(:q, nil, placeholder: 'Find a Story', class: 'form-control') %>
+          <span class="input-group-btn">
+            <%= submit_tag("Go", class: "btn btn-default") %>
+          </span>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
