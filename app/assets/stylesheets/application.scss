@@ -2,6 +2,8 @@
 @import 'bootswatch_variables';
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "./../../../vendor/assets/stylesheets/bookblock/bookblock";
+@import 'bookblock';
 
 body {
   padding-top: 100px;

@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div class="modal fade" id="storyModal" tabindex="-1" role="dialog" aria-labelledby="storyModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title" id="storyModalLabel"><%= story.title %></h5>
+      </div>
+      <div class="modal-body">
+        <div class="bb-custom-wrapper">
+					<div id="bb-bookblock" class="bb-bookblock">
+            <!-- BookBlockCover -->
+            <div class="bb-item">
+              <div class="bb-custom-side">
+              </div>
+              <div class="bb-custom-side">
+                <%= image_tag story.image.filename, class: "sentence-image" %>
+                <h2><%= story.title %></h2>
+              </div>
+            </div>
+
+            <!-- BookBlock Content -->
+            <% sentences.each do |sentence| %>
+              <div class="bb-item">
+                <div class="bb-custom-side">
+                  <%= image_tag sentence.image.filename, class: "story-image" %>
+                </div>
+                <div class="bb-custom-side">
+                  <%= sentence.content %>
+                </div>
+              </div>
+            <% end %>
+					</div>
+
+          <!-- BookBlock navigation -->
+					<nav>
+            <a href="#story-book" id="bb-nav-first" class="btn btn-default btn-sm">
+              | <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            </a>
+            <a href="#story-book" id="bb-nav-prev" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            </a>
+            <a href="#story-book" id="bb-nav-next" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </a>
+            <a href="#story-book" id="bb-nav-last" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> |
+            </a>
+					</nav>
+				</div>
+      </div>
+      <div class="modal-footer">
+        a story by <%= story.author %> and friends
+      </div>
+    </div>
+  </div>
+</div>

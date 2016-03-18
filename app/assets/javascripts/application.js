@@ -15,3 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require modernizr.custom
+//= require_tree ./../../../vendor/assets/javascripts/bookblock

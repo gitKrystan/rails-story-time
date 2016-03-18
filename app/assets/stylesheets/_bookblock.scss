@@ -1,0 +1,60 @@
+.bb-custom-wrapper {
+  position: relative;
+  margin: 0 auto 40px;
+  width: 90%;
+  text-align: center;
+
+  nav {
+    position: relative;
+    z-index: 0;
+    margin: 1em auto 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+  }
+}
+
+.bb-custom-side {
+  display: -webkit-box; // Centering with flexbox
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  float: left;
+  background: #fff;
+  padding: 5%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  .story-image {
+    padding-top: 5px;
+  }
+}
+
+.bb-custom-side,
+.bb-bookblock {
+  box-shadow: 0 12px 20px -10px rgba(81, 64, 49, .6);
+}
+
+// No JS
+.no-js {
+  .bb-custom-wrapper {
+    height: auto;
+  }
+
+  .bb-custom-content {
+    height: 470px;
+  }
+}
